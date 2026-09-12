@@ -21,7 +21,7 @@ the user interface.
 
 ## 2. Video Demonstration
 
-**Video link:** https://www.youtube.com/watch?v=YOUR-VIDEO-ID
+**Video link:** https://www.loom.com/share/170335e6f1e14299925576fff8e3ea90
 
 > The video is 4–5 minutes long and includes a talking-head image of the author
 > presenting the project, as required for accreditation. It walks through:
