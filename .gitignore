@@ -1,0 +1,23 @@
+# Rust build output — never commit compiled binaries
+/target
+
+# Rust backup files
+**/*.rs.bk
+
+# Temporary files created by rustfmt and IDE tooling
+*.tmp
+*.orig
+
+# OS-generated junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
+
+# Test output and coverage reports
+*.profraw
+*.profdata
+/coverage

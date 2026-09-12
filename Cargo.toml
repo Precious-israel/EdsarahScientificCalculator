@@ -1,0 +1,17 @@
+[package]
+name = "edsarah-calculator"
+version = "1.0.0"
+edition = "2021"
+description = "Scientific calculator built for Edsarah Software and Solution (recursion, error handling, unit tests)."
+license = "MIT"
+
+[lib]
+name = "edsarah_calculator"
+path = "src/lib.rs"
+
+[[bin]]
+name = "edsarah-calculator"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
