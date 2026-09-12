@@ -15,7 +15,7 @@ the user interface.
 | Name | ISRAEL OJO |
 | Course CSE 310| RUST |
 | Organisation | Edsarah Software and Solution |
-| Repository | https://github.com/YOUR-USERNAME/EdsarahScientificCalculator |
+| Repository | https://github.com/Precious-israel/EdsarahScientificCalculator |
 
 ---
 
@@ -85,7 +85,7 @@ as a silently incorrect value.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR-USERNAME/EdsarahScientificCalculator.git
+git clone https://github.com/Precious-israel/EdsarahScientificCalculator.git
 cd EdsarahScientificCalculator
 
 # 2. Build the project
