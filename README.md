@@ -1,98 +1,61 @@
-# Edsarah Scientific Calculator
+# Overview
 
-A command line scientific calculator written in Rust for **Edsarah Software and Solution**.
+I am learning Rust to develop a strong foundation in systems programming and 
+memory-safe software design. As a software engineer, my goal is to build 
+reliable applications that perform well and fail predictably. Rust's ownership 
+model, its compile-time safety guarantees, and its explicit error handling make 
+it an ideal language for that goal, so I chose to spend this module deepening 
+my understanding of these features.
 
-The program evaluates a single calculation passed as command line arguments, or
-starts an interactive prompt when no arguments are supplied. All calculation
-logic lives in a small library so that it can be unit tested independently of
-the user interface.
+For this module I wrote a **command-line scientific calculator** for Edsarah 
+Software and Solution. The program evaluates a single calculation passed as 
+command-line arguments, or it starts an interactive prompt when no arguments 
+are supplied. It supports basic arithmetic, powers, the recursive factorial 
+function, square roots, exponential and logarithmic functions, and 
+trigonometric functions. Every fallible operation returns a descriptive error 
+instead of panicking, and results that would overflow are detected and reported 
+rather than silently printed as incorrect numbers.
 
----
+My purpose in writing this software was to practice the core Rust concepts 
+required by this module: variables (both mutable and immutable), expressions, 
+conditionals, loops, functions with ownership and references, and a data 
+structure (`Vec`). I also wanted to demonstrate proper error handling using 
+`Result`, the `?` operator, and a custom error enum, along with compile-time 
+overflow protection using `checked_mul`. I wrote 35 unit tests to confirm the 
+correctness of the recursion, the parsers, the dispatcher, and the formatter.
 
-## 1. Author
+[Software Demo Video](https://www.loom.com/share/170335e6f1e14299925576fff8e3ea90)
 
+# Development Environment
 
-| Name | ISRAEL OJO |
-| Course CSE 310| RUST |
-| Organisation | Edsarah Software and Solution |
-| Repository | https://github.com/Precious-israel/EdsarahScientificCalculator |
+I developed the software on Windows using **Visual Studio Code** as my editor, 
+with the **rust-analyzer** extension for code completion and inline diagnostics 
+and **CodeLLDB** for step debugging. The Rust toolchain was installed through 
+**rustup**, and **Cargo** was used to build, test, run, and format the project. 
+Version control was handled with **Git** and hosted on **GitHub** at 
+[EdsarahScientificCalculator](https://github.com/Precious-israel/EdsarahScientificCalculator).
 
----
+The software is written in **Rust (edition 2021)** and depends only on the 
+standard library — no external crates are used. The unit tests use Rust's 
+built-in `#[cfg(test)]` module and `assert_eq!` macro.
 
-## 2. Video Demonstration
+# Useful Websites
 
-**Video link:** https://www.loom.com/share/170335e6f1e14299925576fff8e3ea90
+- [The Rust Programming Language Book](https://doc.rust-lang.org/book/)
+- [Rust Standard Library Documentation](https://doc.rust-lang.org/std/)
+- [Rust By Example](https://doc.rust-lang.org/rust-by-example/)
+- [Rustlings — Small Interactive Exercises](https://github.com/rust-lang/rustlings)
+- [The Cargo Book](https://doc.rust-lang.org/cargo/)
 
-> The video is 4–5 minutes long and includes a talking-head image of the author
-> presenting the project, as required for accreditation. It walks through:
-> 1. Running the calculator from the command line and from the interactive prompt.
-> 2. A code walkthrough of `src/lib.rs` (recursion, error handling, overflow checks).
-> 3. A code walkthrough of `src/main.rs` (argument parsing and the interactive loop).
-> 4. Running the unit test suite with `cargo test`.
+# Future Work
 
----
-
-## 3. Description
-
-The Edsarah Scientific Calculator supports basic arithmetic, powers, the
-recursive factorial function, roots, logarithms and trigonometric functions.
-Every fallible operation returns a descriptive error rather than panicking, and
-results that would overflow are detected and reported instead of being printed
-as a silently incorrect value.
-
-### Features
-
-* **Two input modes** — command line arguments or an interactive `calc>` prompt.
-* **Recursive factorial** — `factorial(n)` calls itself until it reaches `0! = 1`.
-* **Recursive exponentiation** — fast exponentiation via `power_positive`.
-* **Overflow protection** — `checked_mul` guards the factorial, and every result
-  is checked for infinity before it is displayed.
-* **Domain validation** — `sqrt(-1)` and `ln(0)` produce clear domain errors.
-* **Helpful error messages** — unknown operations, wrong operand counts,
-  negative factorial input and unparsable numbers are all reported clearly.
-* **Fully unit tested** — 35 unit tests covering the recursion, the parser,
-  the dispatcher and the formatter.
-
-### Supported operations
-
-| Operation | Aliases | Operands | Description |
-| --- | --- | --- | --- |
-| `add` | `+`, `plus` | `a b` | `a + b` |
-| `sub` | `-`, `minus`, `subtract` | `a b` | `a - b` |
-| `mul` | `*`, `x`, `multiply` | `a b` | `a * b` |
-| `div` | `/`, `divide` | `a b` | `a / b` |
-| `pow` | `^`, `power` | `a b` | `a` raised to the power `b` |
-| `factorial` | `fact`, `!` | `n` | `n!`, recursive, `0 <= n <= 20` |
-| `sqrt` | `root` | `a` | Square root of `a` |
-| `exp` | | `a` | `e` raised to the power `a` |
-| `ln` | | `a` | Natural logarithm |
-| `log10` | `log` | `a` | Base-10 logarithm |
-| `sin`, `cos`, `tan` | | `a` | Trigonometric functions (radians) |
-| `abs` | | `a` | Absolute value |
-
----
-
-## 4. Requirements
-
-* **Rust** 1.61 or newer (the project uses `std::process::ExitCode`).
-  Install from <https://rustup.rs>.
-* **Cargo** (installed together with Rust).
-* Any operating system: Windows, macOS or Linux.
-
----
-
-## 5. Getting Started
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/Precious-israel/EdsarahScientificCalculator.git
-cd EdsarahScientificCalculator
-
-# 2. Build the project
-cargo build --release
-
-# 3. Run the tests
-cargo test
-
-# 4. Run the program
-cargo run --release -- factorial 5
+- Add support for user-defined variables and full expression evaluation, so 
+  that input like `x = 5; x * 2` becomes possible.
+- Add a history feature to the interactive prompt so the user can recall past 
+  calculations with the up-arrow key.
+- Extend the factorial function to arbitrary-size results using a big-integer 
+  crate, so values beyond `20!` can be computed.
+- Add a `--precision` flag to control how many decimal places are printed in 
+  the output.
+- Support reading a list of calculations from a file so batch jobs can be run 
+  in a single command.
