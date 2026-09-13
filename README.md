@@ -24,7 +24,7 @@ structure (`Vec`). I also wanted to demonstrate proper error handling using
 overflow protection using `checked_mul`. I wrote 35 unit tests to confirm the 
 correctness of the recursion, the parsers, the dispatcher, and the formatter.
 
-[Software Demo Video](https://www.loom.com/share/170335e6f1e14299925576fff8e3ea90)
+[Software Demo Video](https://youtu.be/o3sSdCw3pJY)
 
 # Development Environment
 

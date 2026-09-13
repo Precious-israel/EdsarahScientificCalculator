@@ -43,7 +43,8 @@ fn run_once(operation: &str, operands: &[String]) -> ExitCode {
     }
 }
 
-fn run_interactive_prompt() -> ExitCode {
+fn run_interactive_prompt() -> ExitCode 
+{
     println!("Edsarah Software and Solution — Scientific Calculator");
     println!("Type 'help' for the list of operations, or 'quit' to exit.\n");
 
